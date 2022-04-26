@@ -10,9 +10,6 @@ int check_cycle(listint_t *list)
 	listint_t *_single = list;
 	listint_t *_double = list;
 
-	if (list == NULL)
-		return (0);
-
 	while (_single != NULL && _double != NULL)
 	{
 		_single = _single->next;
