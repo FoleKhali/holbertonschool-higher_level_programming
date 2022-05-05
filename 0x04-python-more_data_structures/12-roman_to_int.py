@@ -14,4 +14,3 @@ def roman_to_int(roman_string):
         else:
             out += num[roman_string[i]]
     return(out)
-
