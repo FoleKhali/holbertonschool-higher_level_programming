@@ -3,6 +3,7 @@
 
 
 class Square:
+    """the square that has area"""
     def __init__(self, size=0):
         self.__size = size
         if (type(self.__size)) is not int:
