@@ -8,22 +8,22 @@ class Square:
         self.__size = size
 
     def __eq__(self, var):
-	    return self.area() == var.area()
-    
+        return self.area() == var.area()
+
     def __ne__(self, var):
-	    return self.area() != var.area()
+        return self.area() != var.area()
 
     def __gt__(self, var):
-	    return self.area() > var.area()
+        return self.area() > var.area()
 
     def __ge__(self, var):
-	    return self.area() >= var.area()
+        return self.area() >= var.area()
 
     def __lt__(self, var):
-	    return self.area() < var.area()
+        return self.area() < var.area()
 
     def __le__(self, var):
-	    return self.area() <= var.area()
+        return self.area() <= var.area()
 
     @property
     def size(self):
