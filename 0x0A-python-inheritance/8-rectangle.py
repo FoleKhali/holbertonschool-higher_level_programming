@@ -1,18 +1,30 @@
 #!/usr/bin/python3
-"""Rectangle module"""
+class BaseGeometry():
+    """
+    base class
+    """
+    def area(self):
+        """
+        method that raises an error
+        """
+        raise Exception("area() is not implemented")
 
-
-BaseGeometry = __import__("7-base_geometry").BaseGeometry
+    def integer_validator(self, name, value):
+        if type(value) is not int:
+            raise TypeError("{:s} must be an integer".format(name))
+        if value < 0 or value == 0:
+            raise ValueError("{:s} must be greater than 0".format(name))
 
 
 class Rectangle(BaseGeometry):
-    """Class Rectangle that inherits from BaseGeometry (7-base_geometry.py)"""
-
+    """
+    Rectangle class inherited from basegeometry
+    """
     def __init__(self, width, height):
-        """Constructor method for Rectangle
-        Instantiation with width and height"""
-
-        super().integer_validator("width", width)
-        super().integer_validator("height", height)
+        """
+        initilize rectangle object validating values with father method
+        """
+        BaseGeometry.integer_validator(self, "width", width)
+        BaseGeometry.integer_validator(self, "height", height)
         self.__width = width
         self.__height = height
