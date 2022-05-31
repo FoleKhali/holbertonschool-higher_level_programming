@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""rectangle"""
+
+
 class BaseGeometry():
     """
     base class
