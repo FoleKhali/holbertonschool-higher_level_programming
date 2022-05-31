@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """ Module has class BaseGeometry """
 
-
 BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """I try this so many times"""
+    """I tried this too much"""
 
     def __init__(self, width, height):
         """Defining a rectangle and checking values"""
