@@ -2,32 +2,29 @@
 """rectangle"""
 
 
-class BaseGeometry():
-    """
-    base class
-    """
+class BaseGeometry:
+    """ Creates an empty class called BaseGeometry"""
+    def __init__(self):
+        pass
+
     def area(self):
-        """
-        method that raises an error
+        """raise an exception
         """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
+        """validates value
+        """
         if type(value) is not int:
-            raise TypeError("{:s} must be an integer".format(name))
-        if value < 0 or value == 0:
-            raise ValueError("{:s} must be greater than 0".format(name))
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
 
 
 class Rectangle(BaseGeometry):
-    """
-    Rectangle class inherited from basegeometry
-    """
+    """Rectangle that inherits BaseGeometry"""
     def __init__(self, width, height):
-        """
-        initilize rectangle object validating values with father method
-        """
-        BaseGeometry.integer_validator(self, "width", width)
-        BaseGeometry.integer_validator(self, "height", height)
+        super().integer_validator("width", width)
+        super().integer_validator("height", height)
         self.__width = width
         self.__height = height
