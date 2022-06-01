@@ -1,18 +1,20 @@
 #!/usr/bin/python3
-"""Saving arguments to a list"""
-
-
+"""
+this script adds all aguments when it is executed
+to a list stored in a file add_item.json
+"""
 import sys
-
-
-load_from_json_file = __import__('5-load_from_json_file').load_from_json_file
-save_to_json_file = __import__('6-save_to_json_file').save_to_json_file
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 try:
-    ls = load_from_json_file("add_item.json")
+    json_list = load_from_json_file('add_item.json')
 except FileNotFoundError:
-    ls = []
+    json_list = []
 
-for i in sys.argv[1:]:
-    ls.append(i)
-save_to_json_file(ls, "add_item.json")
+for i in range(len(sys.argv)):
+    if i == 0:
+        continue
+    json_list.append(sys.argv[i])
+
+save_to_json_file(json_list, 'add_item.json')
