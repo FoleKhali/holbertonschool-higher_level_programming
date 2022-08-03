@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const myVar = 'C is fun\nPython is cool\nJavascript is amazing';
+const myVar = 'C is fun\nPython is cool\nJavaScript is amazing';
 let s = '';
 let i;
 
