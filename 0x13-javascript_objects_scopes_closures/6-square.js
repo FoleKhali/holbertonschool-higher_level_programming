@@ -1,24 +1,16 @@
 #!/usr/bin/node
-/*
-* Task 5
-*/
-class Square extends require('./5-square.js') {
-  constructor (size) {
-    super(size, size);
-  }
+const Square1 = require('./5-square');
 
+module.exports = class Square extends Square1 {
   charPrint (c) {
-    if (c === undefined) {
-      c = 'X';
-    }
-    let i;
-    let p = '';
-    for (i = 0; i < this.width; i++) {
-      p += c;
-    }
-    for (i = 0; i < this.height; i++) {
-      console.log(p);
+    if (c) {
+      for (let i = 0; i < this.height; i++) {
+        console.log(c.repeat(this.width));
+      }
+    } else {
+      for (let i = 0; i < this.height; i++) {
+        console.log('X'.repeat(this.width));
+      }
     }
   }
-}
-module.exports = Square;
+};
