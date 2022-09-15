@@ -1,30 +1,23 @@
 #!/usr/bin/node
-const request = require('request');
-const url = 'https://swapi-api.hbtn.io/api/films/';
-let id = parseInt(process.argv[2], 10);
-let characters = [];
+// script that prints all characters of a Star Wars movie
 
-request(url, function (err, response, body) {
-  if (err == null) {
-    const resp = JSON.parse(body);
-    const results = resp.results;
-    if (id < 4) {
-      id += 3;
-    } else {
-      id -= 3;
+const movieID = process.argv[2];
+const endpointFilms = 'https://swapi-api.hbtn.io/api/films/' + movieID;
+const axios = require('axios').default;
+
+axios.get(endpointFilms).then(
+  async (response) => {
+    const endpointpeople = response.data.characters;
+    for (const x of endpointpeople) {
+      await axios.get(x).then(
+        (people) => {
+          console.log(people.data.name);
+        }).catch(
+        (err) => {
+          console.log(err);
+        });
     }
-    for (let i = 0; i < results.length; i++) {
-      if (results[i].episode_id === id) {
-        characters = results[i].characters;
-        break;
-      }
-    }
-    for (let j = 0; j < characters.length; j++) {
-      request(characters[j], function (err, response, body) {
-        if (err == null) {
-          console.log(JSON.parse(body).name);
-        }
-      });
-    }
-  }
-});
+  }).catch(
+  (error) => {
+    console.log(error);
+  });
