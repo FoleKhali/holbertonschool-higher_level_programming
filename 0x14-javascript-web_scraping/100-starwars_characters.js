@@ -2,7 +2,7 @@
 /* module request */
 const request = require('request');
 const req2 = require('request');
-let page = 'https://swapi.co/api/films/';
+let page = 'https://swapi-api.hbtn.io/api/films/';
 page = page + process.argv[2];
 request(page, function (error, status, body) {
   if (error) {
